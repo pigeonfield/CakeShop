@@ -1,0 +1,19 @@
+﻿@model CakeShop.ViewModels.HomeViewModel
+
+<h2>@Model.Title</h2>
+
+@foreach (var cake in Model.Cakes)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="@cake.ImageThumbnailUrl" alt="" />
+            <div class="caption">
+                <h4 class="pull-right">@cake.Price.ToString("c")</h4>
+                <h4>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@cake.Id">@cake.Name</a>    
+                </h4>
+                <h5>@cake.ShortDescription</h5>
+            </div>
+        </div>
+    </div>
+}
